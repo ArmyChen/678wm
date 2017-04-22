@@ -304,7 +304,7 @@
 						<span class="fa fa-minus from-goods-option" data-goods-id="<{d.id}>"></span>
 						<span class="num"><{num}></span>
 					</span>
-					<span class="fa fa-plus from-goods-option" data-goods-id="<{d.id}>"></span>
+					<span class="fa fa-plus from-goods-option" data-goods-id="<{d.id}>" data-option-id="0"></span>
 				</div>
 			</div>
 		</div>
@@ -517,7 +517,7 @@
                 var price = $(this).data('price');
                 $(this).siblings().removeClass('selected');
                 $(this).addClass('selected');
-                $('.goods-option .no-gutter .price').html('¥ ' + price);
+                $('.goods-option .no-gutter .price').html(price);
                 var num = goodsNum(goods_id, option_id);
                 $('.goods-option .no-gutter .num').html(num);
                 if(num > 0) {
@@ -537,7 +537,7 @@
                         var val = {};
                         for(var i = 0; i < result.message.message['options'].length; i++){
                             val = result.message.message.options[i];
-                            result.message.message.options[i]['num'] = goodsNum(id,  val.id);
+                            result.message.message.options[i]['num'] = goodsNum(id,  val.id) == 'undefined'?'':goodsNum(id,  val.id);
                         }
                         var gettpl = $('#goods-option').html();
                         laytpl(gettpl).render(result.message.message, function(html){

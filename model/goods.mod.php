@@ -52,6 +52,25 @@ function goods_avaliable_fetchall($slid,$sid, $cid = 0, $ignore_bargain = false)
 		$good['options'] = $goods_options[$good['id']];
 		$good['bargain_id'] = 0;
 		$good['thumb'] = str_replace("./public/attachment/","http://www.678sh.com/public/attachment/",$good['thumb']);
+        //2017-4-16 添加品味组
+        foreach($goods_tastes as &$goods_taste){
+            $taste_shop=json_decode($goods_taste['shops'],true);
+            if(in_array($good['id'],$taste_shop)){
+                $series = urldecode($goods_taste['flavor']);
+                $json_assoc = json_decode($series,true);
+                $result = array();
+                foreach ($json_assoc as $key=>$item) {
+                    $result[$key]['goods_id'] = $item['goods_id'];
+                    $result[$key]['name'] = $item['name'];
+                    $result[$key]['price'] = $item['price'];
+                    $result[$key]['id'] = $good['id'].$key;
+                    $result[$key]['num'] = 999;
+                }
+
+                $good['is_options'] = 1;
+                $good['taste'][]=$result;
+            }
+        }
 		if (!empty($bargain_goods) && in_array($good['id'], array_keys($bargain_goods)) && ($good['total'] == -1 || $good['total'] > 0)) {
 			$discount_goods = $bargain_goods[$good['id']];
 			$good['bargain_id'] = $discount_goods['bargain_id'];
@@ -70,14 +89,8 @@ function goods_avaliable_fetchall($slid,$sid, $cid = 0, $ignore_bargain = false)
 		if (!empty($cid) && $good['cid'] == $cid) {
 			$good['show'] = 1;
 		}
-		//2017-4-16 添加品味组
-        foreach($goods_tastes as &$goods_taste){
-            $taste_shop=json_decode($goods_taste['shops'],true);
-            if(in_array($good['id'],$taste_shop)){
-                $good['taste'][]=json_decode($goods_taste['flavor'],true);
-            }
-        }
-		
+
+
 	}
 	if (!is_array($bargains)) {
 		$bargains = array();
@@ -86,13 +99,33 @@ function goods_avaliable_fetchall($slid,$sid, $cid = 0, $ignore_bargain = false)
 //	var_dump($result);
 	return $result;
 }
-function goods_fetch($id)
+function goods_fetch($id,$slid = 40)
 {
 	global $_W;
 	$data = pdo_fetch('select id,name as title, image as thumb,is_options,comment_good,comment_total,m_desc as description,buy_count as sailed,price from fanwe_dc_menu where id=:id', array('id' => $id));
-	$data['options'] = pdo_fetchall('SELECT * FROM ' . tablename('tiny_wmall_plus_goods_options') . ' WHERE uniacid = :aid AND goods_id = :goods_id ORDER BY displayorder DESC, id ASC', array(':aid' => $_W['uniacid'], ':goods_id' => $id));
-	
-	$data['thumb_'] = str_replace("./public/attachment/","http://www.678sh.com/public/attachment/",$data['thumb']);
+//	$data['options'] = pdo_fetchall('SELECT * FROM ' . tablename('tiny_wmall_plus_goods_options') . ' WHERE uniacid = :aid AND goods_id = :goods_id ORDER BY displayorder DESC, id ASC', array(':aid' => $_W['uniacid'], ':goods_id' => $id));
+    $goods_tastes=pdo_fetchall("select * from fanwe_dc_supplier_taste where is_effect=1 and location_id=:location_id",array(":location_id"=>$slid));
+    //2017-4-16 添加品味组
+    foreach($goods_tastes as &$goods_taste){
+        $taste_shop=json_decode($goods_taste['shops'],true);
+        if(in_array($data['id'],$taste_shop)){
+            $series = urldecode($goods_taste['flavor']);
+            $json_assoc = json_decode($series,true);
+            $result = array();
+            foreach ($json_assoc as $key=>$item) {
+                $result[$key]['goods_id'] = $data['id'];
+                $result[$key]['name'] = $item['name'];
+                $result[$key]['price'] = $item['price'];
+                $result[$key]['id'] = $data['id'].$key;
+                $result[$key]['num'] = 999;
+            }
+            
+            
+            $data['is_options'] = 1;
+            $data['options'] = $result;
+        }
+    }
+    $data['thumb_'] = str_replace("./public/attachment/","http://www.678sh.com/public/attachment/",$data['thumb']);
 	if (!empty($data['slides'])) {
 		$data['slides'] = iunserializer($data['slides']);
 		foreach ($data['slides'] as &$slide) {

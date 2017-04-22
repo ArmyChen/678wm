@@ -144,7 +144,8 @@ if($op == 'detail') {
 		message(error(-1, '非法访问'), '', 'ajax');
 	}
 	$id = intval($_GPC['id']);
-	$goods = goods_fetch($id);
+	$goods = goods_fetch($id,$slid);
+
 	if(is_error($goods)) {
 		message(error(-1, '商品不存在或已删除'), '', 'ajax');
 	}
