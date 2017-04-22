@@ -690,8 +690,9 @@ function order_insert_member_cart($slid,$sid, $ignore_bargain = false)
 				continue;
 			}
 			$goods_box_price = $goods['box_price'];
-			if (!$goods['is_options']) {
-				$item = $v['options'][0];
+			$opts = current($v['options']);
+			if (!$opts['is_options']) {
+				$item = $opts;
 				$num = intval($item['num']);
 				if ($num > 0) {
 					$cart_item = array('title' => $goods_info[$k]['title'], 'num' => $num, 'price' => $goods_info[$k]['price'], 'discount_price' => $goods_info[$k]['price'], 'discount_num' => 0, 'price_num' => $num, 'total_price' => round($goods_info[$k]['price'] * $num, 2), 'total_discount_price' => round($goods_info[$k]['price'] * $num, 2), 'bargain_id' => 0);
@@ -739,15 +740,16 @@ function order_insert_member_cart($slid,$sid, $ignore_bargain = false)
 			} else {
 				foreach ($v['options'] as $key => $val) {
 					$key = intval($key);
+					var_dump($val);
 					if ($key > 0) {
-						$option = pdo_get('tiny_wmall_plus_goods_options', array('uniacid' => $_W['uniacid'], 'id' => $key));
-						if (empty($option)) {
-							continue;
-						}
-						$cart_goods[$k][$key] = array('title' => $goods_info[$k]['title'] . "({$option['name']})", 'num' => $val['num'], 'price' => $option['price'], 'discount_price' => $option['price'], 'discount_num' => 0, 'price_num' => $num, 'total_price' => round($option['price'] * $val['num'], 2), 'total_discount_price' => round($option['price'] * $val['num'], 2), 'bargain_id' => 0);
+//						$option = pdo_get('tiny_wmall_plus_goods_options', array('uniacid' => $_W['uniacid'], 'id' => $key));
+//						if (empty($option)) {
+//							continue;
+//						}
+						$cart_goods[$k][$key] = array('title' => $goods_info[$k]['title'] . "({$val['name']})", 'num' => $val['num'], 'price' => $val['price_total'], 'discount_price' => $val['price_total'], 'discount_num' => 0, 'price_num' => $num, 'total_price' => round($val['price_total'] * $val['num'], 2), 'total_discount_price' => round($val['price_total'] * $val['num'], 2), 'bargain_id' => 0);
 						$total_num += $val['num'];
-						$total_price += $option['price'] * $val['num'];
-						$total_original_price += $option['price'] * $val['num'];
+						$total_price += $val['price_total'] * $val['num'];
+						$total_original_price += $val['price_total'] * $val['num'];
 						$total_box_price += $goods_box_price * $val['num'];
 					}
 				}

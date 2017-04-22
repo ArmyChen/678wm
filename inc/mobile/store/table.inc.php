@@ -68,6 +68,7 @@ if($op == 'index') {
 if($op == 'post') {
 
 	$cart = order_insert_member_cart($slid,$sid, true);
+//    var_dump($cart);die;
 	if(is_error($cart)) {
 		$cart = order_fetch_member_cart($sid);
 		if(empty($cart)) {

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="678wm">
+  <component name="PublishConfigData" autoUpload="Always" serverName="wm678sh">
     <serverData>
-      <paths name="678wm">
+      <paths name="gz_txlphs">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="wm678sh">
         <serverdata>
           <mappings>
             <mapping deploy="/public_html/addons/we7_wmall_plus" local="$PROJECT_DIR$" web="/" />
@@ -10,5 +17,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

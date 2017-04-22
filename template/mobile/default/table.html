@@ -667,11 +667,26 @@
                 var price = goods_item['price'];
                 var original_price = goods_item['price'];
                 var discount_price = goods_item['discount_price'];
+                var id , option;
                 if(option_id > 0) {
-                    price = goods_item['options'][option_id]['price'];
-                    original_price = goods_item['options'][option_id]['price'];
-                    discount_price = goods_item['options'][option_id]['discount_price'];
+                    for (var i =0;i<goods_item['options'].length;i++){
+                        var opt = goods_item['options'][i];
+                        if(opt !== undefined){
+                            if(opt['id'] === option_id){
+                                option = opt;
+                                id= opt['id'];
+                                price = opt['price'];
+                                original_price = opt['price'];
+                                discount_price = opt['price'];
+                            }
+						}
+
+					}
+
+
                 }
+
+                goods_item['options'][id] = option;
                 var price_change = 0;
                 if(sign == '+') {
                     if(goods_item['bargain_id'] > 0 && bargains[goods_item['bargain_id']]) {
@@ -744,9 +759,9 @@
                         }
                     } else {
                         var max = goods_item.total;
-                        if(option_id > 0) {
-                            max = goods_item['options'][option_id]['total'];
-                        }
+//                        if(option_id > 0) {
+//                            max = goods_item['options'][option_id]['total'];
+//                        }
                         if(null != max && max != "" && max != "-1" && curNum >= max && !flag) {
                             $.toast('库存不足,下次再来');
                             return false;
@@ -772,7 +787,8 @@
                             price_num: price_change <= 1 ? 1: 0,
                             discount_num: price_change == 2 ? 1: 0,
                             bargain_id: price_change == 2 ? goods_item['bargain_id']: 0,
-                            price_total: price
+                            price_total: price,
+							is_options:goods_item['is_options'] == 1
                         }
                     } else {
                         options[option_id]['num'] = parseInt(options[option_id]['num']) + 0 + 1;

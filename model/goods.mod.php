@@ -68,7 +68,7 @@ function goods_avaliable_fetchall($slid,$sid, $cid = 0, $ignore_bargain = false)
                 }
 
                 $good['is_options'] = 1;
-                $good['taste'][]=$result;
+                $good['options']=$result;
             }
         }
 		if (!empty($bargain_goods) && in_array($good['id'], array_keys($bargain_goods)) && ($good['total'] == -1 || $good['total'] > 0)) {
