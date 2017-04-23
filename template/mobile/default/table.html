@@ -683,10 +683,10 @@
 
 					}
 
-
+                    goods_item['options'][id] = option;
                 }
 
-                goods_item['options'][id] = option;
+
                 var price_change = 0;
                 if(sign == '+') {
                     if(goods_item['bargain_id'] > 0 && bargains[goods_item['bargain_id']]) {
