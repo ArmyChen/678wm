@@ -740,7 +740,7 @@ function order_insert_member_cart($slid,$sid, $ignore_bargain = false)
 			} else {
 				foreach ($v['options'] as $key => $val) {
 					$key = intval($key);
-					var_dump($val);
+//					var_dump($val);
 					if ($key > 0) {
 //						$option = pdo_get('tiny_wmall_plus_goods_options', array('uniacid' => $_W['uniacid'], 'id' => $key));
 //						if (empty($option)) {
