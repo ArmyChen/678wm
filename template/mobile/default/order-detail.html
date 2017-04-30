@@ -51,7 +51,8 @@
 								<a href="{php echo $this->createMobileUrl('comment');}" class="table-cell">查看评价</a>
 							{/if}
 						{elseif in_array($order['status'], array(6))}
-							<a href="{php echo $this->createMobileUrl('goods', array('f' => '1', 'id' => $order['id'], 'sid' => $order['sid']));}" class="table-cell external" data-id="{$order['id']}">再来一单</a>
+						<!--<a href="{php echo $this->createMobileUrl('goods', array('f' => '1', 'id' => $order['id'], 'sid' => $order['sid']));}" class="table-cell external" data-id="{$order['id']}">再来一单</a>-->
+						<a href="/app/index.php?i=7&c=entry&sid=<?php echo $order['sid']?>&do=store&m=we7_wmall_plus&from=singlemessage&isappinstalled=0" class="table-cell external" data-id="{$order['id']}">再来一单</a>
 						{/if}
 					</div>
 				</div>
@@ -59,7 +60,8 @@
 				<div class="order-details">
 					<div class="order-details-con border-1px-tb">
 						<div class="store-info border-1px-b">
-							<a href="{php echo $this->createMobileUrl('goods', array('sid' => $order['sid']));}" class="external">
+							<!--<a href="{php echo $this->createMobileUrl('goods', array('sid' => $order['sid']));}" class="external">-->
+								<a href="/app/index.php?i=7&c=entry&sid=<?php echo $order['sid']?>&do=store&m=we7_wmall_plus&from=singlemessage&isappinstalled=0" class="external">
 								<img src="{php echo tomedia($store['logo']);}" alt="" />
 								<span class="store-title">{$store['title']}</span>
 								<span class="fa fa-arrow-right pull-right"></span>
