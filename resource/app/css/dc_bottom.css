@@ -350,10 +350,10 @@ ul {
     height: 16px
 }
 
-.price:before {
-    margin-right: 1px;
-    content: "\A5"
-}
+/*.price:before {*/
+    /*margin-right: 1px;*/
+    /*content: "\A5"*/
+/*}*/
 
 .discount:before {
     margin-right: 1px;

@@ -285,6 +285,7 @@ $(function(){
 	$(document).on('click', '#order-submit', function(){
 		var $this = $(this);
 		if($(this).hasClass('bg-grey')) {
+            $(this).remove();
 			return false;
 		}
 		$(this).removeClass('bg-danger').addClass('bg-grey');

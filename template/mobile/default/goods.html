@@ -477,8 +477,22 @@ $(function(){
 		});
 	});
 	$('#btnSubmit').click(function(){
+//	    debugger;
 		$('#goods-form :hidden[name="goods"]').val((encodeURI(JSON.stringify((cart_new)))));
-		$('#goods-form').submit();
+//        $('#btnSubmit').attr("disabled",true);
+		$('#goods-form').ajaxSubmit({
+            dataType: "json",
+            beforeSubmit: function(a,f,o) {
+                $('#btnSubmit').attr('disable');
+                $('#btnSubmit').attr('style','color:gray');
+            },
+            success: function(json) {
+                $('#goods-form').submit();
+            },
+            error: function(e) {
+                $('#goods-form').submit();
+            }
+        });
 	});
 
 	{if !empty($store['notice'])}
