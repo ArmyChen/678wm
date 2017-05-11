@@ -322,6 +322,9 @@ $(function(){
 				$.toast(result.message.message);
 			} else {
 				$.toast('下单成功');
+                $.post("{php echo $this->createMobileUrl('goods', array('op' => 'cart_truncate', 'sid' => $sid));}", {}, function(data){
+                    console.log(data);
+                });
 				location.href = "{php echo $this->createMobileUrl('pay', array('sid' => $sid, 'order_type' => 'order'));}&id=" + result.message.message;
 			}
 			return false;
