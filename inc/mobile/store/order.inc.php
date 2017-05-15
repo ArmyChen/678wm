@@ -76,6 +76,24 @@ if($op == 'end') {
 }
 
 if($op == 'detail') {
+		setcookie("ct",'', time() - 3600);
+		// exit;	
+
+	/*if($_COOKIE['ct']!=''){
+		echo $_COOKIE['ct']."23";
+		setcookie("ct",'', time() - 3600);
+		exit;
+	}
+
+
+	if(!$_GET['ct']){
+	// echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+		header("Location:".'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&ct=1");
+	}else{
+		setcookie("ct","1",time()+3600*24);
+	}*/
+
+
 	$title = "{$_W['we7_wmall_plus']['config']['title']}-订单详情";
 	$id = intval($_GPC['id']);
 	$order = order_fetch($id);
@@ -104,6 +122,8 @@ if($op == 'detail') {
 	$order_types = order_types();
 	$pay_types = order_pay_types();
 	$order_status = order_status();
+
+	header("Location:/app/index.php?i=7&c=entry&sid=".$order['sid']."&do=store&m=we7_wmall_plus&wxref=mp.weixin.qq.com#wechat_redirect");
 	include $this->template('order-detail');
 }
 
