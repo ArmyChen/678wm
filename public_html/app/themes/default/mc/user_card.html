@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>会员卡领取</title>
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
-    <link href="https://weui.io/weui.css" type="text/css" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
+    <link rel="stylesheet" href="/app/themes/default/style/weui.css" type="text/css">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
         wx.config({
@@ -15,7 +16,7 @@
             signature: "{$singgs}",
             jsApiList: ['addCard']
         });
-        wx.ready(function(){
+        wx.ready(function () {
             //添加卡券
             document.querySelector('#addCard').onclick = function () {
                 wx.addCard({
@@ -26,19 +27,42 @@
                         }
                     ],
                     success: function (res) {
-                       JSON.stringify(res.cardList);
+                        JSON.stringify(res.cardList);
                     }
                 });
             };
         });
     </script>
+    <style>
+        *{
+            font-family: "新宋体";
+        }
+    </style>
 </head>
 
-<body style="text-align:center">
-<div style="margin:0 auto; width:100px; margin-top: 150px; height:30px;line-height: 30px; border:1px solid #F00;text-align:center; background: #ff1c1c">
+<body style="text-align:center;margin:40% 5%">
+<div class="container" id="container">
+    <div class="page button js_show">
+        <div class="page__hd">
+            <p class="page__title">
+                <div class="icon-box">
+                    <i class="weui-icon-success weui-icon_msg"></i>
+                    <div class="icon-box__ctn">
+                        <h3 class="icon-box__title">尊敬的客户</h3>
+                        <p class="icon-box__desc" style="font-family: 'Microsoft YaHei'">您的会员卡已到账</p>
+                    </div>
+                </div>
+            </p>
+            <p class="page__desc"></p>
+        </div>
+        <br>
+        <div class="page__bd page__bd_spacing">
 
-<a id="addCard" href="javascript:;" style="color: #fff;text-decoration:none">领取会员卡</a>
-
+            <div class="button-sp-area">
+                <a id="addCard" class="weui-btn weui-btn_primary" href="javascript:;">立即领取</a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
