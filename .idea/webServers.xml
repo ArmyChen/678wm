@@ -5,7 +5,7 @@
       <webServer id="0f5957ac-217e-49bc-8d9d-8980b6a99b53" name="678wm" url="http://47.93.32.116">
         <fileTransfer host="47.93.32.116" port="21">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+            <advancedOptions controlEncoding="utf-8" dataProtectionLevel="Private" passiveMode="true" />
           </advancedOptions>
           <option name="port" value="21" />
         </fileTransfer>
