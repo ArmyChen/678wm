@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会员卡卡号</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+
+    <script type='text/javascript' src='http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js'></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+</head>
+
+<body>
+
+{if !empty($setting['logo'])}<img style="margin: 0 auto;"  src="{php echo tomedia($setting['logo'])}" class="mui-img-rounded"/>{/if}
+
+<div id="qrcode"></div>
+{if !empty($listx)}<span>{php echo $listx['0']['usercard']}</span>{/if}
+</body>
+
+<script>
+    jQuery('#qrcode').qrcode({width: 200,height: 200,text:"{php echo $listx['0']['usercard']}"});
+</script>
+</html>

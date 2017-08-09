@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会员卡领取</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <link href="https://weui.io/weui.css" type="text/css" />
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.config({
+            debug: false,
+            appId: "{$appid}",
+            timestamp: {$wtimestamp},
+            nonceStr: "{$noncestr}",
+            signature: "{$singgs}",
+            jsApiList: ['addCard']
+        });
+        wx.ready(function(){
+            //添加卡券
+            document.querySelector('#addCard').onclick = function () {
+                wx.addCard({
+                    cardList: [
+                        {
+                            cardId: "{$cardid}",
+                            cardExt: '{"nonce_str":"{$noncestr}","timestamp":"{$wtimestamp}","signature":"{$signature}"}'
+                        }
+                    ],
+                    success: function (res) {
+                       JSON.stringify(res.cardList);
+                    }
+                });
+            };
+        });
+    </script>
+</head>
+
+<body style="text-align:center">
+<div style="margin:0 auto; width:100px; margin-top: 150px; height:30px;line-height: 30px; border:1px solid #F00;text-align:center; background: #ff1c1c">
+
+<a id="addCard" href="javascript:;" style="color: #fff;text-decoration:none">领取会员卡</a>
+
+</div>
+</body>
+</html>
