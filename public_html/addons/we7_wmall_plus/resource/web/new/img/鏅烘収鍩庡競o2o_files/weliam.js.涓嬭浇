@@ -1,0 +1,19 @@
+//数据加载方式，数据注入方式
+function postAjax(AjaxUrl,AjaxData){
+	var ajaxData = '';
+	$.ajax({
+		type: "POST",
+		url: AjaxUrl,
+		dataType: 'json',
+		data:AjaxData,
+		async:false,
+		beforeSend: function(XMLHttpRequest) {},
+		success: function(data) {
+			ajaxData = data;
+		},
+		error: function(msg) {
+			ajaxData = msg;
+		}
+	});
+	return ajaxData;
+}

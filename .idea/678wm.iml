@@ -5,5 +5,77 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jweixin-1.0.0" level="application" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://G:/zgxl168b/vendor/composer" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/annotations" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/cache" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/collections" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/common" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/dbal" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/doctrine-bundle" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/inflector" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/lexer" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/orm" />
+          <root url="file://G:/zgxl168b/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://G:/zgxl168b/vendor/jdorn/sql-formatter" />
+          <root url="file://G:/zgxl168b/vendor/kriswallsmith/assetic" />
+          <root url="file://G:/zgxl168b/vendor/michelf/php-markdown" />
+          <root url="file://G:/zgxl168b/vendor/monolog/monolog" />
+          <root url="file://G:/zgxl168b/vendor/nelmio/api-doc-bundle" />
+          <root url="file://G:/zgxl168b/vendor/paragonie/random_compat" />
+          <root url="file://G:/zgxl168b/vendor/phpexcel/lib" />
+          <root url="file://G:/zgxl168b/vendor/psr/log" />
+          <root url="file://G:/zgxl168b/vendor/rw/lib" />
+          <root url="file://G:/zgxl168b/vendor/sensio/distribution-bundle" />
+          <root url="file://G:/zgxl168b/vendor/sensio/framework-extra-bundle" />
+          <root url="file://G:/zgxl168b/vendor/sensio/generator-bundle" />
+          <root url="file://G:/zgxl168b/vendor/swiftmailer/swiftmailer" />
+          <root url="file://G:/zgxl168b/vendor/symfony/assetic-bundle" />
+          <root url="file://G:/zgxl168b/vendor/symfony/monolog-bundle" />
+          <root url="file://G:/zgxl168b/vendor/symfony/polyfill-apcu" />
+          <root url="file://G:/zgxl168b/vendor/symfony/polyfill-mbstring" />
+          <root url="file://G:/zgxl168b/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://G:/zgxl168b/vendor/symfony/symfony" />
+          <root url="file://G:/zgxl168b/vendor/twig/extensions" />
+          <root url="file://G:/zgxl168b/vendor/twig/twig" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://G:/zgxl168b/vendor/composer" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/annotations" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/cache" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/collections" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/common" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/dbal" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/doctrine-bundle" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/inflector" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/lexer" />
+          <root url="file://G:/zgxl168b/vendor/doctrine/orm" />
+          <root url="file://G:/zgxl168b/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://G:/zgxl168b/vendor/jdorn/sql-formatter" />
+          <root url="file://G:/zgxl168b/vendor/kriswallsmith/assetic" />
+          <root url="file://G:/zgxl168b/vendor/michelf/php-markdown" />
+          <root url="file://G:/zgxl168b/vendor/monolog/monolog" />
+          <root url="file://G:/zgxl168b/vendor/nelmio/api-doc-bundle" />
+          <root url="file://G:/zgxl168b/vendor/paragonie/random_compat" />
+          <root url="file://G:/zgxl168b/vendor/phpexcel/lib" />
+          <root url="file://G:/zgxl168b/vendor/psr/log" />
+          <root url="file://G:/zgxl168b/vendor/rw/lib" />
+          <root url="file://G:/zgxl168b/vendor/sensio/distribution-bundle" />
+          <root url="file://G:/zgxl168b/vendor/sensio/framework-extra-bundle" />
+          <root url="file://G:/zgxl168b/vendor/sensio/generator-bundle" />
+          <root url="file://G:/zgxl168b/vendor/swiftmailer/swiftmailer" />
+          <root url="file://G:/zgxl168b/vendor/symfony/assetic-bundle" />
+          <root url="file://G:/zgxl168b/vendor/symfony/monolog-bundle" />
+          <root url="file://G:/zgxl168b/vendor/symfony/polyfill-apcu" />
+          <root url="file://G:/zgxl168b/vendor/symfony/polyfill-mbstring" />
+          <root url="file://G:/zgxl168b/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://G:/zgxl168b/vendor/symfony/symfony" />
+          <root url="file://G:/zgxl168b/vendor/twig/extensions" />
+          <root url="file://G:/zgxl168b/vendor/twig/twig" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
